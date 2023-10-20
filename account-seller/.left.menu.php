@@ -5,7 +5,7 @@ $aMenuLinks = Array(
 		SITE_DIR."/account-seller/my-advertisments", 
 		Array(), 
 		Array(), 
-		"" 
+		"CSite::InGroup(array(1,6,8))" 
 	)
 );
 ?>

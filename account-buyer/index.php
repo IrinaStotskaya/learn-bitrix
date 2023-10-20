@@ -12,15 +12,13 @@ $APPLICATION->SetTitle("Личный кабинет покупателя");
 		"USER_PROPERTY_NAME" => ""
 	)
 );?><?$APPLICATION->IncludeComponent(
-	"bitrix:subscribe.form", 
-	".default", 
-	array(
-		"COMPONENT_TEMPLATE" => ".default",
-		"USE_PERSONALIZATION" => "Y",
-		"SHOW_HIDDEN" => "Y",
-		"PAGE" => "#SITE_DIR#about/subscr_edit.php",
+	"bitrix:subscribe.form",
+	"",
+	Array(
+		"CACHE_TIME" => "36000000",
 		"CACHE_TYPE" => "A",
-		"CACHE_TIME" => "3600"
-	),
-	false
+		"PAGE" => "#SITE_DIR#about/subscribe.php",
+		"SHOW_HIDDEN" => "Y",
+		"USE_PERSONALIZATION" => "Y"
+	)
 );?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

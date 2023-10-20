@@ -415,12 +415,12 @@ a:hover {
 .site-navbar .site-navigation .site-menu > li > a:hover {
   color: #f89d13;
 }
-.site-navbar .site-navigation .site-menu > li:last-child {
+/* .site-navbar .site-navigation .site-menu > li:last-child {
   padding-right: 0;
-}
-.site-navbar .site-navigation .site-menu > li:last-child > a {
+} */
+/* .site-navbar .site-navigation .site-menu > li:last-child > a {
   padding-right: 0;
-}
+} */
 .site-navbar .site-navigation .site-menu .has-children {
   position: relative;
 }
