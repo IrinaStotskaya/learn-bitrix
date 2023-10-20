@@ -48,7 +48,6 @@ IncludeTemplateLangFile(__FILE__);
   <div class="site-loader"></div>
 
   <div class="site-wrap">
-
     <div class="site-mobile-menu">
       <div class="site-mobile-menu-header">
         <div class="site-mobile-menu-close mt-3">
@@ -127,6 +126,8 @@ IncludeTemplateLangFile(__FILE__);
           </div>
               <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#"
                   class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+				  <div class="col-4 col-md-4 col-lg-8">
+		  
                   <?$APPLICATION->IncludeComponent(
 	"bitrix:menu", 
 	"horizontal_multilevel1", 
@@ -148,8 +149,9 @@ IncludeTemplateLangFile(__FILE__);
 	array(
 		"ACTIVE_COMPONENT" => "Y"
 	)
-);?>
+    );?>
             </nav>
+		
           </div>
 
 
@@ -157,8 +159,11 @@ IncludeTemplateLangFile(__FILE__);
       </div>
     </div>
   </div>
-
+    
+    <?$page = $APPLICATION->GetCurPage();
+	if($page == "/"):?>
     <?$GLOBALS['IsPriority_filter'] = array('PROPERTY_PRIORITY' => '5');
+	 
       $APPLICATION->IncludeComponent("bitrix:news.list", "slider1", Array(
 	"ACTIVE_DATE_FORMAT" => "d.m.Y",	// Формат показа даты
 		"ADD_SECTIONS_CHAIN" => "Y",	// Включать раздел в цепочку навигации
@@ -223,13 +228,13 @@ IncludeTemplateLangFile(__FILE__);
 		"COMPONENT_TEMPLATE" => "slider"
 	),
 	false
-);?>
+      );?>
+    
  
 
   <div class="py-5">
     <div class="container">
-
-      <div class="row">
+	    <div class="row">
         <div class="col-md-6 col-lg-4 mb-3 mb-lg-0">
           <div class="feature d-flex align-items-start">
             <span class="icon mr-3 flaticon-house"></span>
@@ -287,5 +292,36 @@ IncludeTemplateLangFile(__FILE__);
       </div>
     </div>
   </div>
-  
-    
+  <?endif?>
+  <?$page = $APPLICATION->GetCurPage();
+	if($page == "/about/"):?>  
+	<div class="site-blocks-cover inner-page-cover overlay" style="background-image: url(<?=$SITE_TEMPLATE_PATH?>/local/templates/home/images/hero_bg_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
+      <div class="container">
+        <div class="row align-items-center justify-content-center text-center">
+          <div class="col-md-10">
+            <h1 class="mb-2"><?=GetMessage("ABOUT_US")?></h1>
+            <?$APPLICATION->IncludeComponent(
+	"bitrix:breadcrumb",
+	"chain",
+	Array(
+		"PATH" => "",
+		"SITE_ID" => "s1",
+		"START_FROM" => "0"
+	)
+);?>
+          </div>
+        </div>
+      </div>
+    </div>
+    <?endif?>
+	<?if($page != "/" && $page != "/about/"):?> 
+		<?$APPLICATION->IncludeComponent(
+	"bitrix:breadcrumb",
+	"chain_inner",
+	Array(
+		"PATH" => "",
+		"SITE_ID" => "s1",
+		"START_FROM" => "0"
+	)
+);?>
+	<?endif?> 
