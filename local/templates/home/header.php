@@ -137,7 +137,7 @@ IncludeTemplateLangFile(__FILE__);
 		"CHILD_MENU_TYPE" => "left",
 		"USE_EXT" => "Y",
 		"MENU_CACHE_TYPE" => "A",
-		"MENU_CACHE_TIME" => "0",
+		"MENU_CACHE_TIME" => "36000000",
 		"MENU_CACHE_USE_GROUPS" => "Y",
 		"MENU_CACHE_GET_VARS" => array(
 		),
@@ -149,7 +149,7 @@ IncludeTemplateLangFile(__FILE__);
 	array(
 		"ACTIVE_COMPONENT" => "Y"
 	)
-    );?>
+);?>
             </nav>
 		
           </div>
@@ -294,7 +294,7 @@ IncludeTemplateLangFile(__FILE__);
   </div>
   <?endif?>
   <?$page = $APPLICATION->GetCurPage();
-	if($page == "/about/"):?>  
+	if($page !== "/"):?>  
 	<div class="site-blocks-cover inner-page-cover overlay" style="background-image: url(<?=$SITE_TEMPLATE_PATH?>/local/templates/home/images/hero_bg_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
       <div class="container">
         <div class="row align-items-center justify-content-center text-center">
@@ -314,14 +314,3 @@ IncludeTemplateLangFile(__FILE__);
       </div>
     </div>
     <?endif?>
-	<?if($page != "/" && $page != "/about/"):?> 
-		<?$APPLICATION->IncludeComponent(
-	"bitrix:breadcrumb",
-	"chain_inner",
-	Array(
-		"PATH" => "",
-		"SITE_ID" => "s1",
-		"START_FROM" => "0"
-	)
-);?>
-	<?endif?> 

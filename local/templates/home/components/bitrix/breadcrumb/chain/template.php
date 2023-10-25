@@ -22,7 +22,6 @@ for($index = 0; $index < $itemSize; $index++)
 	if($arResult[$index]["LINK"] <> "" && $index != $itemSize-1)
 	{
 		$strReturn .= '
-			<div>
 				'.$arrow.'
 				<a href="'.$arResult[$index]["LINK"].'" title="'.$title.'" itemprop="item">'.$title.'</a>
 				<meta itemprop="position" content="'.($index + 1).'" />';
@@ -36,6 +35,6 @@ for($index = 0; $index < $itemSize; $index++)
 	}
 }
 $strReturn .= '</div>';
-$strReturn .= '</div>';
+
 
 return $strReturn;
