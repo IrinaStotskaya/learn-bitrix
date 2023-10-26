@@ -115,7 +115,12 @@ $this->setFrameMode(true);
     <div class="row mb-5">
       <div class="col-12">
         <div class="site-section-title">
+          <?$page = $APPLICATION->GetCurPage();
+          if($page != "/account-seller/my-advertisments/"):?>
           <h2><?=GetMessage("NEW_MAIN")?></h2>
+          <?else:?>
+          <h2><?=GetMessage("MY_ADVERTISMENTS")?></h2>
+          <?endif;?>
         </div>
       </div>
     </div>
@@ -136,7 +141,6 @@ $this->setFrameMode(true);
               <div class="inner">
                 <span class="price rounded"><?echo $arItem["DISPLAY_PROPERTIES"]["PRICE"]["DISPLAY_VALUE"]?></span>
                 <h3 class="title"><?echo $arItem["NAME"]?></h3>
-                <!-- <p class="location">Los Angeles, CA 90005</p> -->
               </div>
               <div class="prop-more-info">
                 <div class="inner d-flex">

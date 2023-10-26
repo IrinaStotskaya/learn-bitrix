@@ -1,20 +1,23 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Мои объявления");
-?><?$APPLICATION->IncludeComponent(
+?><?$curUser = $GLOBALS['USER']->GetId();
+    $GLOBALS['Cur_user_filter'] = array('CREATED_BY' => $curUser);   
+    $APPLICATION->IncludeComponent(
 	"bitrix:news", 
-	".default", 
+	"advs", 
 	array(
-		"COMPONENT_TEMPLATE" => ".default",
+		"COMPONENT_TEMPLATE" => "advs",
 		"IBLOCK_TYPE" => "advertisement",
 		"IBLOCK_ID" => "6",
-		"NEWS_COUNT" => "20",
+		"NEWS_COUNT" => "6",
 		"USE_SEARCH" => "N",
 		"USE_RSS" => "N",
 		"USE_RATING" => "N",
 		"USE_CATEGORIES" => "N",
 		"USE_REVIEW" => "N",
-		"USE_FILTER" => "N",
+		"USE_FILTER" => "Y",
+		"FILTER_NAME" => "Cur_user_filter",
 		"SORT_BY1" => "ACTIVE_FROM",
 		"SORT_ORDER1" => "DESC",
 		"SORT_BY2" => "SORT",
@@ -41,7 +44,7 @@ $APPLICATION->SetTitle("Мои объявления");
 		"PREVIEW_TRUNCATE_LEN" => "",
 		"LIST_ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"LIST_FIELD_CODE" => array(
-			0 => "",
+			0 => "CREATED_BY",
 			1 => "",
 		),
 		"LIST_PROPERTY_CODE" => array(
@@ -71,14 +74,16 @@ $APPLICATION->SetTitle("Мои объявления");
 			4 => "PRIORITY",
 			5 => "EXTERNAL_LINKS",
 			6 => "PRICE",
-			7 => "",
+			7 => "IMAGE_GALLERY",
+			8 => "ADDITIONAL_FILES",
+			9 => "",
 		),
 		"DETAIL_DISPLAY_TOP_PAGER" => "N",
 		"DETAIL_DISPLAY_BOTTOM_PAGER" => "Y",
 		"DETAIL_PAGER_TITLE" => "Страница",
 		"DETAIL_PAGER_TEMPLATE" => "",
 		"DETAIL_PAGER_SHOW_ALL" => "Y",
-		"PAGER_TEMPLATE" => ".default",
+		"PAGER_TEMPLATE" => "new_round",
 		"DISPLAY_TOP_PAGER" => "N",
 		"DISPLAY_BOTTOM_PAGER" => "Y",
 		"PAGER_TITLE" => "Новости",

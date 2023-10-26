@@ -38,7 +38,8 @@ if($arParams["USE_SEARCH"]=="Y"):?>
 <br />
 <?php
 endif;
-if($arParams["USE_FILTER"]=="Y"):
+$page = $APPLICATION->GetCurPage();
+if($page!="/account-seller/my-advertisments/" && $arParams["USE_FILTER"]=="Y"):
 $APPLICATION->IncludeComponent(
 	"bitrix:catalog.filter",
 	"",
