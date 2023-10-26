@@ -8,7 +8,7 @@ $arUrlRewrite=array (
     'PATH' => '/account-seller/my-advertisments/index.php',
     'SORT' => 100,
   ),
-  8 => 
+  12 => 
   array (
     'CONDITION' => '#^/about/vacancies/#',
     'RULE' => '',
