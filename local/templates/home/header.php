@@ -299,7 +299,11 @@ IncludeTemplateLangFile(__FILE__);
       <div class="container">
         <div class="row align-items-center justify-content-center text-center">
           <div class="col-md-10">
+		    <?if($page !== "/about/contacts/feedback.php"):?>
             <h1 class="mb-2"><?=GetMessage("ABOUT_US")?></h1>
+			<?else:?>
+			<h1 class="mb-2"><?=GetMessage("CONTACT_US")?></h1>	
+			<?endif;?>
             <?$APPLICATION->IncludeComponent(
 	"bitrix:breadcrumb",
 	"chain",

@@ -1,3 +1,4 @@
 <?
 $MESS["ABOUT_US"] = "ABOUT US";
+$MESS["CONTACT_US"] = "CONTACT US";
 ?>
