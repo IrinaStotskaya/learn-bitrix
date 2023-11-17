@@ -90,7 +90,7 @@ IncludeTemplateLangFile(__FILE__);
                          );?></span></a>
             </p>
           </div>
-          <div class="col-6 col-md-6 text-right">
+          <div class="col-6 col-md-6 text-right">		  
             <?$APPLICATION->IncludeComponent(
               "bitrix:main.include", 
               ".default", 
@@ -102,7 +102,8 @@ IncludeTemplateLangFile(__FILE__);
               ),
               false
                    );?>
-          </div>
+				   <p><a href="/login/auth.php" class= "h5"><?echo GetMessage("MAIN_LOGIN")?></a></p>
+        </div>
         </div>
       </div>
 

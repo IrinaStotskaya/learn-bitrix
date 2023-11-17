@@ -1,15 +1,3 @@
-<?
-if(!defined("B_PROLOG_INCLUDED")||B_PROLOG_INCLUDED!==true)die();
-/**
- * Bitrix vars
- *
- * @var array $arParams
- * @var array $arResult
- * @var CBitrixComponentTemplate $this
- * @global CMain $APPLICATION
- * @global CUser $USER
- */
-?>
 <div class="col-md-12 col-lg-8 mb-5">
 <?if(!empty($arResult["ERROR_MESSAGE"]))
 {
@@ -45,19 +33,19 @@ if($arResult["OK_MESSAGE"] <> '')
 	</div>
 
 	<?if($arParams["USE_CAPTCHA"] == "Y"):?>
-	<div class="row form-group">
-		<div class="col-md-12">
-			<label class="font-weight-bold"><?=GetMessage("MFT_CAPTCHA")?></label>
-		</div>
-		<div class="col-md-12">
-			<input type="hidden" name="captcha_sid" class="form-control" value="<?=$arResult["capCode"]?>">
-		    <img src="/bitrix/tools/captcha.php?captcha_sid=<?=$arResult["capCode"]?>" width="180" height="40" alt="CAPTCHA">
-		</div>
-		<div class="col-md-12">
-			<label class="font-weight-bold"><?=GetMessage("MFT_CAPTCHA_CODE")?></label>
-		    <input type="text" name="captcha_word" class="form-control" value="">
-	    </div>
-	</div>
+    <div class="row form-group">
+        <div class="col-md-12">
+            <label class="font-weight-bold"><?=GetMessage("MFT_CAPTCHA")?></label>
+        </div>
+        <div class="col-md-12">
+            <input type="hidden" name="captcha_sid" class="form-control" value="<?=$arResult["capCode"]?>">
+            <img src="/bitrix/tools/captcha.php?captcha_sid=<?=$arResult["capCode"]?>" width="180" height="40" alt="CAPTCHA">
+        </div>
+        <div class="col-md-12">
+            <label class="font-weight-bold"><?=GetMessage("MFT_CAPTCHA_CODE")?></label>
+            <input type="text" name="captcha_word" class="form-control" value="">
+        </div>
+    </div>
 	<?endif;?>
 	<div class="row form-group">
         <div class="col-md-12">
