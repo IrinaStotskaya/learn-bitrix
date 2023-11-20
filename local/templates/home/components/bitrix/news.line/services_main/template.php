@@ -21,7 +21,7 @@ $this->setFrameMode(true);
 		?>
            <div class="col-md-6 col-lg-4 mb-4">
 		     <div id="<?=$this->GetEditAreaId($arItem['ID']);?>">
-              <a href="<?echo $arItem["PROPERTY_SERVICE_LINK_VALUE"]?>" class="service text-center border rounded">
+              <a href="<?echo $arItem["PROPERTY_SERVICE_LINK_VALUE"]?>" target="_blank" class="service text-center border rounded">
                 <span class="icon flaticon-house"></span>
                 <h2 class="service-heading"><?echo $arItem["NAME"]?></h2>
                 <p><span class="read-more"><?=GetMessage("LEARN_MORE")?></span></p>
