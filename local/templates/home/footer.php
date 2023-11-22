@@ -2,7 +2,12 @@
 <?
 IncludeTemplateLangFile(__FILE__);
 ?>
-    <footer class="site-footer">
+
+
+</div>
+</div>
+</div>
+<footer class="site-footer">
       <div class="container">
           <div class="row">
             <div class="col-lg-4">

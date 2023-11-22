@@ -1,0 +1,1 @@
+<img alt="Image" src="<?=$SITE_TEMPLATE_PATH?>/local/templates/home/images/about.jpg" class="img-fluid">

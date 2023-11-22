@@ -318,4 +318,7 @@ IncludeTemplateLangFile(__FILE__);
         </div>
       </div>
     </div>
+	<div class="site-section border-bottom">
+	<div class="container">
+	<div class="row align-items-center">
     <?endif?>
