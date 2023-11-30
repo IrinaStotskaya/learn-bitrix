@@ -16,7 +16,6 @@ $this->setFrameMode(true);
 <div class="pt-5">
       <div class="container">
         <form class="row">
-          
           <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
             <div class="select-wrap">
               <span class="icon icon-arrow_drop_down"></span>
@@ -115,12 +114,7 @@ $this->setFrameMode(true);
     <div class="row mb-5">
       <div class="col-12">
         <div class="site-section-title">
-          <?$page = $APPLICATION->GetCurPage();
-          if($page != "/account-seller/my-advertisments/"):?>
-          <h2><?=GetMessage("NEW_MAIN")?></h2>
-          <?else:?>
-          <h2><?=GetMessage("MY_ADVERTISMENTS")?></h2>
-          <?endif;?>
+            <h2><?echo $arParams["TITLE_FOR_NEWS_LIST"]?></h2>
         </div>
       </div>
     </div>

@@ -99,6 +99,16 @@ $APPLICATION->SetTitle("Мои объявления");
 		"DISPLAY_PICTURE" => "Y",
 		"DISPLAY_PREVIEW_TEXT" => "Y",
 		"USE_SHARE" => "N",
+		"FILTER_FIELD_CODE" => array(
+			0 => "",
+			1 => "",
+		),
+		"FILTER_PROPERTY_CODE" => array(
+			0 => "",
+			1 => "",
+		),
+		"TITLE_FOR_MY_PAGE" => "Мой заголоввок не сохраняется",
+		"TITLE_FOR_NEWS_LIST" => "Мои объявления",
 		"SEF_URL_TEMPLATES" => array(
 			"news" => "",
 			"section" => "",
