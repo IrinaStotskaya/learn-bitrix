@@ -108,7 +108,6 @@ $APPLICATION->SetTitle("Объявления");
 		"USE_RSS" => "N",
 		"USE_SEARCH" => "N",
 		"USE_SHARE" => "N",
-		"TITLE_FOR_MY_PAGE" => "Новый заголовок",
 		"TITLE_FOR_NEWS_LIST" => "Новые предложения для вас",
 		"SEF_URL_TEMPLATES" => array(
 			"news" => "",

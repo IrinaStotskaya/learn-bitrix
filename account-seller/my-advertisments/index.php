@@ -107,7 +107,6 @@ $APPLICATION->SetTitle("Мои объявления");
 			0 => "",
 			1 => "",
 		),
-		"TITLE_FOR_MY_PAGE" => "Мой заголоввок не сохраняется",
 		"TITLE_FOR_NEWS_LIST" => "Мои объявления",
 		"SEF_URL_TEMPLATES" => array(
 			"news" => "",
