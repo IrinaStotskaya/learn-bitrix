@@ -6,9 +6,8 @@ class UserToGroup {
 
         $context = \Bitrix\Main\Application::getInstance()->getContext();
         $request = $context->getRequest();
-        $values = $request->getPostList();
         $user_id = $arFields["ID"];
-        $user_role = $values["UF_USER_ROLE"];
+        $user_role = $request->getPost("UF_USER_ROLE");
         if ($user_role == '7') {
             $group_id = array(6);
         }
