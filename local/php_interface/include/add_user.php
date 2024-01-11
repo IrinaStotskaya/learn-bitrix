@@ -4,10 +4,8 @@ class UserToGroup {
 
     public static function addUser(&$arFields) {
 
-        $context = \Bitrix\Main\Application::getInstance()->getContext();
-        $request = $context->getRequest();
         $user_id = $arFields["ID"];
-        $user_role = $request->getPost("UF_USER_ROLE");
+        $user_role = $arFields["UF_USER_ROLE"][0];
         if ($user_role == '7') {
             $group_id = array(6);
         }
