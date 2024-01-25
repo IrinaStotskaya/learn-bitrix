@@ -1,37 +1,36 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <?
 $aMenuLinks = Array(
 	Array(
 		"О компании", 
-		"./", 
+		SITE_DIR."/company/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Руководство", 
-		"management.php", 
+		SITE_DIR."/company/management.php", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Миссия и стратегия", 
-		"mission.php", 
+		SITE_DIR."/company/mission.php", 
 		Array(), 
 		Array(), 
-		"" 
+		"CSite::InGroup(array(1,6,7,8,5))" 
 	),
 	Array(
 		"История", 
-		"history.php", 
+		SITE_DIR."/company/history.php", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Вакансии", 
-		"vacancies.php", 
+		SITE_DIR."/company/vacancies.php", 
 		Array(), 
 		Array(), 
 		"" 

@@ -37,7 +37,11 @@ IncludeTemplateLangFile(__FILE__);
                 <div class="logo-block"><a href="" class="logo">Мебельный магазин</a>
                 </div>
                 <div class="main-phone-block">
+				<?if (date('H') > 9 and date('H') < 18): ?>
                     <a href="tel:84952128506" class="phone">8 (495) 212-85-06</a>
+				<?else:?>
+					<a href="mailto:store@store.ru" class="phone">store@store.ru</a>
+				<?endif;?>
                     <div class="shedule">время работы с 9-00 до 18-00</div>
                 </div>
                 <div class="actions-block">
@@ -45,98 +49,54 @@ IncludeTemplateLangFile(__FILE__);
                         <input type="text" placeholder="Поиск">
                         <button type="submit"></button>
                     </form>
-                    <nav class="menu-block">
-                        <ul>
-                            <li class="att popup-wrap">
-                                <a id="hd_singin_but_open" href="" class="btn-toggle">Войти на сайт</a>
-                                <form action="/" class="frm-login popup-block">
-                                    <div class="frm-title">Войти на сайт</div>
-                                    <a href="" class="btn-close">Закрыть</a>
-                                    <div class="frm-row"><input type="text" placeholder="Логин"></div>
-                                    <div class="frm-row"><input type="password" placeholder="Пароль"></div>
-                                    <div class="frm-row"><a href="" class="btn-forgot">Забыли пароль</a></div>
-                                    <div class="frm-row">
-                                        <div class="frm-chk">
-                                            <input type="checkbox" id="login">
-                                            <label for="login">Запомнить меня</label>
-                                        </div>
-                                    </div>
-                                    <div class="frm-row"><input type="submit" value="Войти"></div>
-                                </form>
-                            </li>
-                            <li><a href="">Зарегистрироваться</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
+					<?$APPLICATION->IncludeComponent(
+	"bitrix:system.auth.form", 
+	"demo", 
+	array(
+		"FORGOT_PASSWORD_URL" => "/s2/login/",
+		"PROFILE_URL" => "/s2/login/user.php",
+		"REGISTER_URL" => "/s2/login/registration.php",
+		"SHOW_ERRORS" => "N",
+		"COMPONENT_TEMPLATE" => "demo"
+	),
+	false
+);?>
+				</div>
             </div>
         </header>
         <!-- /header -->
         <!-- nav -->
-        <nav class="nav">
-            <div class="inner-wrap">
-                <div class="menu-block popup-wrap">
-                    <a href="" class="btn-menu btn-toggle"></a>
-                    <div class="menu popup-block">
-                        <ul class="">
-                            <li class="main-page"><a href="">Главная</a>
-                            </li>
-                            <li>
-                                <a href="">Компания</a>
-                                <ul>
-                                    <li>
-                                        <a href="">Пункт 1</a>
-                                        <ul>
-                                            <li><a href="">Пункт 1</a>
-                                            </li>
-                                            <li><a href="">Пункт 2</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="">Пункт 2</a>
-                                    </li>
-                                    <li><a href="">Пункт 3</a>
-                                    </li>
-                                    <li><a href="">Пункт 4</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><a href="">Новости</a>
-                            </li>
-                            <li>
-                                <a href="">Каталог</a>
-                                <ul>
-                                    <li>
-                                        <a href="">Пункт 1</a>
-                                        <ul>
-                                            <li><a href="">Пункт 1</a>
-                                            </li>
-                                            <li><a href="">Пункт 2</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="">Пункт 2</a>
-                                    </li>
-                                    <li><a href="">Пункт 3</a>
-                                    </li>
-                                    <li><a href="">Пункт 4</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><a href="">Фотогалерея</a>
-                            </li>
-                            <li><a href="">Партнерам</a>
-                            </li>
-                            <li><a href="">Контакты</a>
-                            </li>
-                        </ul>
-                        <a href="" class="btn-close"></a>
-                    </div>
-                    <div class="menu-overlay"></div>
-                </div>
-            </div>
-        </nav>
+		<?$APPLICATION->IncludeComponent("bitrix:menu", "horizontal_multilevel1", Array(
+	"ROOT_MENU_TYPE" => "top",	// Тип меню для первого уровня
+		"MAX_LEVEL" => "3",	// Уровень вложенности меню
+		"CHILD_MENU_TYPE" => "left",	// Тип меню для остальных уровней
+		"USE_EXT" => "Y",	// Подключать файлы с именами вида .тип_меню.menu_ext.php
+		"MENU_CACHE_TYPE" => "A",	// Тип кеширования
+		"MENU_CACHE_TIME" => "36000000",	// Время кеширования (сек.)
+		"MENU_CACHE_USE_GROUPS" => "Y",	// Учитывать права доступа
+		"MENU_CACHE_GET_VARS" => "",	// Значимые переменные запроса
+		"COMPONENT_TEMPLATE" => "horizontal_multilevel",
+		"DELAY" => "N",	// Откладывать выполнение шаблона меню
+		"ALLOW_MULTI_SELECT" => "N",	// Разрешить несколько активных пунктов одновременно
+	),
+	false,
+	array(
+	"ACTIVE_COMPONENT" => "Y"
+	)
+);?>	
+       
         <!-- /nav -->
+		<?$page = $APPLICATION->GetCurPage();
+		if ($page != "/s2/"):
+		?>
+		<div class="breadcrumbs-box">
+            <div class="inner-wrap">
+                <a href="">Главная</a>
+                <a href="">Мебель</a>
+                <span>Выставки и события</span>
+            </div>
+        </div>
+		<?endif;?>
         <!-- page -->
         <div class="page">
             <!-- content box -->
@@ -144,6 +104,18 @@ IncludeTemplateLangFile(__FILE__);
                 <!-- content -->
                 <div class="content">
                     <div class="cnt">
+
+					<?$page = $APPLICATION->GetCurPage();
+					if ($page != "/s2/"):
+					?>
+					 <header>
+                            <h1><?$APPLICATION->ShowTitle(false);?></h1>
+                    </header>
+					<?endif;?>
+
+					<?$page = $APPLICATION->GetCurPage();
+					if ($page == "/s2/"):
+					?>
 
 						<p>«Мебельная компания» осуществляет производство мебели на высококлассном оборудовании с применением минимальной доли ручного труда, что позволяет обеспечить высокое качество нашей продукции. Налажен производственный процесс как массового и индивидуального характера, что с одной стороны позволяет обеспечить постоянную номенклатуру изделий и индивидуальный подход – с другой.
 						</p>
@@ -295,84 +267,8 @@ IncludeTemplateLangFile(__FILE__);
 		                    </div>
 		                </div>
 		                <!-- /afisha box -->
+					<?endif;?>
+	
                                 
 				                               
-                    </div>
-                </div>
-                <!-- /content -->
-                <!-- side -->
-                <div class="side">
-                    <!-- side anonse -->
-                    <div class="side-block side-anonse">
-                        <div class="title-block"><span class="i i-title01"></span>Полезная информация!</div>
-                        <div class="item">
-                            <p>Клиенты предпочитают все больше эко-материалов.</p>
-                        </div>
-                    </div>
-                    <!-- /side anonse -->
-                    <!-- side wrap -->
-                    <div class="side-wrap">
-                        <div class="item-wrap">
-                            <!-- side action -->
-                            <div class="side-block side-action">
-                                <img src="<?echo SITE_TEMPLATE_PATH?>/img/side-action-bg.jpg" alt="" class="bg">
-                                <div class="photo-block">
-                                    <img src="<?echo SITE_TEMPLATE_PATH?>/img/side-action.jpg" alt="">
-                                </div>
-                                <div class="text-block">
-                                    <div class="title">Акция!</div>
-                                    <p>Мебельная полка всего за 560 <span class="r">a</span>
-                                    </p>
-                                </div>
-                                <a href="" class="btn-more">подробнее</a>
-                            </div>
-                            <!-- /side action -->
-                        </div>
-                                              
-                       <!-- footer rew slider box -->
-                       <div class="item-wrap">
-		                     <div class="rew-footer-carousel">
-								<div class="item">
-									<div class="side-block side-opin">
-										<div class="inner-block">
-											<div class="title">
-												<div class="photo-block">
-													<img src="<?echo SITE_TEMPLATE_PATH?>/img/side-opin.jpg" alt="">
-												</div>
-												<div class="name-block"><a href="">Дмитрий Иванов</a></div>
-												<div class="pos-block">Генеральный директор,"Офис+"</div>
-											</div>
-											<div class="text-block">“В магзине предоставили потрясающий выбор
-												расцветок, а также, получил большую скидку по карте постоянного...</div>
-										</div>
-									</div>
-								</div>
-								<div class="item">
-									<div class="side-block side-opin">
-										<div class="inner-block">
-											<div class="title">
-												<div class="photo-block">
-													<img src="<?echo SITE_TEMPLATE_PATH?>/img/side-opin.jpg" alt="">
-												</div>
-												<div class="name-block"><a href="">Дмитрий Иванов</a></div>
-												<div class="pos-block">Генеральный директор,"Офис+"</div>
-											</div>
-											<div class="text-block">“В магазине предоставили потрясающий выбор
-												расцветок, а также, получил большую скидку по карте постоянного...</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- / footer rew slider box --> 
-                    </div>
-                    <!-- /side wrap -->
-                </div>
-                <!-- /side -->
-            </div>
-            <!-- /content box -->
-        </div>
-        <!-- /page -->
-        <div class="empty"></div>
-    </div>
-    <!-- /wrap -->
+                   
