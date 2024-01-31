@@ -89,13 +89,14 @@ IncludeTemplateLangFile(__FILE__);
 		<?$page = $APPLICATION->GetCurPage();
 		if ($page != "/s2/"):
 		?>
-		<div class="breadcrumbs-box">
-            <div class="inner-wrap">
-                <a href="">Главная</a>
-                <a href="">Мебель</a>
-                <span>Выставки и события</span>
-            </div>
-        </div>
+		<?$APPLICATION->IncludeComponent("bitrix:breadcrumb", "exam1", Array(
+		"COMPONENT_TEMPLATE" => ".default",
+		"START_FROM" => "0",	// Номер пункта, начиная с которого будет построена навигационная цепочка
+		"PATH" => "",	// Путь, для которого будет построена навигационная цепочка (по умолчанию, текущий путь)
+		"SITE_ID" => "s2",	// Cайт (устанавливается в случае многосайтовой версии, когда DOCUMENT_ROOT у сайтов разный)
+		),
+		false
+			);?>
 		<?endif;?>
         <!-- page -->
         <div class="page">
