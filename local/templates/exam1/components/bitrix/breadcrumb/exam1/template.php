@@ -21,7 +21,6 @@ if(!is_array($css) || !in_array("/bitrix/css/main/font-awesome.css", $css))
 }
 
 $strReturn .= '<div class="breadcrumbs-box"><div class="inner-wrap">';
-
 $itemSize = count($arResult);
 for($index = 0; $index < $itemSize; $index++)
 {

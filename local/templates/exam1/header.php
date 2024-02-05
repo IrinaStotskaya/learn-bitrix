@@ -110,7 +110,7 @@ IncludeTemplateLangFile(__FILE__);
 					if ($page != "/s2/"):
 					?>
 					 <header>
-                            <h1><?$APPLICATION->ShowTitle(false);?></h1>
+                            <h1><?$APPLICATION->GetPageProperty("title");?></h1>
                     </header>
 					<?endif;?>
 
