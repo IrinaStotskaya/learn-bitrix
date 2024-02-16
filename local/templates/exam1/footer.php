@@ -4,7 +4,7 @@ IncludeTemplateLangFile(__FILE__);
 ?>
 
 </div>
-                </div>
+    </div>
                 <!-- /content -->
                 <!-- side -->
                 <div class="side"><!-- side menu -->
@@ -150,14 +150,25 @@ IncludeTemplateLangFile(__FILE__);
             <nav class="main-menu">
                 <div class="item">
                     <div class="title-block">О магазине</div>
-                    <ul>
-                        <li><a href="">Отзывы</a>
-                        </li>
-                        <li><a href="">Руководство </a>
-                        </li>
-                        <li><a href="">История</a>
-                        </li>
-                    </ul>
+                    <?$APPLICATION->IncludeComponent(
+	"bitrix:menu", 
+	"exam1", 
+	array(
+		"ALLOW_MULTI_SELECT" => "N",
+		"CHILD_MENU_TYPE" => "left",
+		"DELAY" => "N",
+		"MAX_LEVEL" => "1",
+		"MENU_CACHE_GET_VARS" => array(
+		),
+		"MENU_CACHE_TIME" => "3600",
+		"MENU_CACHE_TYPE" => "N",
+		"MENU_CACHE_USE_GROUPS" => "Y",
+		"ROOT_MENU_TYPE" => "mytype",
+		"USE_EXT" => "N",
+		"COMPONENT_TEMPLATE" => "exam1"
+	),
+	false
+);?>
                 </div>
                 <div class="item">
                     <div class="title-block">Каталог товаров</div>
@@ -189,7 +200,18 @@ IncludeTemplateLangFile(__FILE__);
                 <div class="title-block"><?echo GetMessage("TEMPLATE_CONTACTS_INFO")?></div>
                 <div class="loc-block">
                     <div class="address">ул. Летняя, стр.12, офис 512</div>
-                    <div class="phone"><a href="tel:84952128506">8 (495) 212-85-06</a>
+                    <div class="phone"><a href="tel:84952128506"><?$APPLICATION->IncludeComponent(
+	"bitrix:main.include", 
+	".default", 
+	array(
+		"AREA_FILE_SHOW" => "file",
+		"AREA_FILE_SUFFIX" => "inc",
+		"EDIT_TEMPLATE" => "",
+		"PATH" => "/s2/include/main_phone_inc.php",
+		"COMPONENT_TEMPLATE" => ".default"
+	),
+	false
+);?></a>
                     </div>
                 </div>
                 <div class="main-soc-block">

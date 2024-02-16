@@ -24,9 +24,8 @@ $this->setFrameMode(true);
 			<div class="inner-block">
 				<div class="title">
 					<div class="photo-block">
-					<?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arItem["PREVIEW_PICTURE"])):
-						$img = CFile::ResizeImageGet($arItem["PREVIEW_PICTURE"], array("width" => '49', "height" => '49'), BX_RESIZE_IMAGE_PROPORTIONAL);?>
-						<img src="<?=$img["src"]?>" alt="<?=$arItem["PREVIEW_PICTURE"]["ALT"]?>">
+					<?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arItem["PREVIEW_PICTURE"])):?>
+						<img src="<?=$arItem["PREVIEW_PICTURE"]["src"]?>" alt="<?=$arItem["PREVIEW_PICTURE"]["ALT"]?>">
 					<?else:?>
 						<img src="<?=SITE_TEMPLATE_PATH?>/img/no_photo_left_block.jpg" alt="">
 					<?endif;?>
@@ -34,7 +33,7 @@ $this->setFrameMode(true);
 					<div class="name-block"><a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><?echo $arItem["NAME"]?></a></div>
 					<div class="pos-block"><?=$arItem["DISPLAY_PROPERTIES"]["POSITION"]["DISPLAY_VALUE"]?>,<?=$arItem["DISPLAY_PROPERTIES"]["COMPANY"]["DISPLAY_VALUE"]?></div>
 				</div>
-				<div class="text-block"><?= TruncateText($arItem["PREVIEW_TEXT"], 150)?></div>
+				<div class="text-block"><?= $arItem["PREVIEW_TEXT"]?></div>
 			</div>
 		</div>
 	</div>
